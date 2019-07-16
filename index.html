@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>SmartTag Builder</title>
+		<link rel="stylesheet" href="css/new-style.css" />
+        <script type="text/javascript" src="js/sorttable.js"></script>
+	</head>
+	<body>
+		<div class="modal" data-site data-zone>
+			<div class="wrapper">
+				<header id="edit-titlebar">
+					<ul>
+                        <input type="button" id="save_button" class="modal-close-button" value="Save">
+                        <input type="button" id="cancel_button" class="modal-close-button" value="Cancel">
+						<li> <label id="sitename_label"></label> </li>
+						<li> <label id="zonename_label"></label> </li>
+                        <li><input type="button" id="last_tag_button" value="USE LAST COMPLETE TAG"></li>
+					</ul>
+				</header>
+				<div id="edit-info-container">
+
+					<div id="app-info" class="edit-info">
+						<label class="section-label">General App Information</label>
+						<div class="column1">
+							<label class="opt-label">App Name <span class="req-mark">*</span></label>
+							<input id="app.name" type="text" name="app-name" required>
+							
+							<label class="opt-label">App Domain <span class="req-mark">*</span></label>
+							<input id="app.domain" type="text" name="app-domain" required>
+							
+							<label class="opt-label">App Bundle <span class="req-mark">*</span></label>
+							<input id="app.bundle" type="text" name="app-bundle" required>
+							
+							<ul>
+								<li>
+									<label class="opt-label">App Version</label>
+									<input id="app.ver" type="text" name="app-ver">
+								</li>
+								<li>
+									<label class="opt-label">App Store Rating</label>
+									<input id="app.storerating" type="text" name="app-storerating">
+								</li>
+							</ul>
+						</div>
+						
+						<div class="column2">
+							<label class="opt-label">Privacy Policy</label>
+							<div class="radio-div">
+								<label class="radio">
+									<input class="app.privacypolicy" type="radio" name="app.privacypolicy" value="1">Yes
+								</label>
+								<label class="radio">
+									<input class="app.privacypolicy" type="radio" name="app.privacypolicy" value="0">No
+								</label>
+								<label class="radio">
+									<input class="app.privacypolicy" type="radio" name="app.privacypolicy" value="">Unknown
+								</label>
+							</div>
+							
+							
+							<label class="opt-label">App Store URL <span class="req-mark">*</span></label>
+							<input id="app.storeurl" type="text" name="app-storeurl" required>
+							
+							<label class="opt-label">App Store ID <span class="req-mark">*</span></label>
+							<input id="app.appstoreid" type="text" name="app-appstoreid" required>
+							
+							<label class="opt-label">API Support</label>
+							<div class="radio-div">
+								<label class="radio">
+									<input class="accept.apis" type="radio" name="accept.apis" value="[3,1000]">MRAID v1
+								</label>
+								<label class="radio">
+									<input class="accept.apis" type="radio" name="accept.apis" value="[5,1001]">MRAID v2
+								</label>
+                                <label class="radio" style="visibility: hidden">
+									<input class="accept.apis" type="radio" name="accept.apis" value="">MRAID v2
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div id="device-info" class="edit-info">
+						<label class="section-label">Device Information</label>
+						<div class="column1">
+							<label class="opt-label">Model</label>
+							<input id="device.model" type="text" name="device-info">
+							
+							<label class="opt-label">Pixel Ratio</label>
+							<input id="device.pixel_ratio" type="text" name="device-info">
+							
+							<label class="opt-label">Connection Type</label>
+							<input id="device.connectiontype" type="text" name="device-info">
+							
+							<label class="opt-label">Carrier</label>
+							<input id="device.carrier" type="text" name="device-info">
+						</div>
+						
+						<div class="column2">
+							<label class="opt-label">DPID</label>
+							<input id="device.dpid" type="text" name="device-info">
+							
+							<label class="opt-label">DPID MD5</label>
+							<input id="device.dpidmd5" type="text" name="device-info">								
+							<label class="opt-label">DPID SHA1</label>
+							<input id="device.dpidsha1" type="text" name="device-info">
+							
+							<ul>
+								<li>
+									<label class="opt-label">Device ID Type</label>
+									<select id="device-dpid_type">
+										<option value=""></option>
+										<option value="idfa">IDFA</option>
+										<option value="gaid">GAID</option>
+										<option value="udid">UDID</option>
+										<option value="open-udid">Open-UDID</option>
+										<option value="other">Other</option>
+									</select>
+								</li>
+								
+								<li>
+									<label class="opt-label">JavaScript Support</label>
+									<div class="radio-div">
+										<label class="radio">
+											<input class="device.js" type="radio" name="device.js" value="1">Yes
+										</label>
+										<label class="radio">
+											<input class="device.js" type="radio" name="device.js" value="0">No/Unknown
+										</label>
+                                        <label class="radio" style="visibility: hidden;">
+											<input class="device.js" type="radio" name="device.js" value="">No/Unknown
+										</label>
+									</div>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+					
+					<div id="geo-info" class="edit-info">
+						<label class="section-label">Geo Information</label>
+						
+						<div class="column1">
+							<label class="opt-label">Latitude</label>
+							<input id="geo.latitude" type="text" name="geo-latitude">
+							
+							<label class="opt-label">Longitude</label>
+							<input id="geo.longitude" type="text" name="geo-longitude">
+						</div>
+						
+						<div class="column2">
+							<label class="opt-label">Geo Type</label>
+							<select name="geo.type" id="geo.type">
+								<option value=""></option>
+								<option value="1">GPS/Location Services</option>
+								<option value="2">IP Address</option>
+								<option value="3">User Provided</option>
+							</select>
+							
+							<label class="opt-label">Geo Consent</label>
+							<div class="radio-div">
+								<label class="radio">
+									<input class="geo.consent" type="radio" name="geo.consent" value="1">Yes
+								</label>
+								<label class="radio">
+									<input class="geo.consent" type="radio" name="geo.consent" value="2">No
+								</label>
+								<label class="radio">
+									<input class="geo.consent" type="radio" name="geo.consent" value="">Unknown
+								</label>
+							</div>
+						</div>
+					</div>
+					
+					<div id="additional-info" class="edit-info">
+						<label class="section-label">Additional Information</label>
+						<div id="keywords" class="kv">
+							<label class="opt-label">Keywords</label>
+							<textarea name="keywords" placeholder="sports,football,arsenal"></textarea>
+						</div>
+						
+						<div id="inventory" class="kv">
+							<label class="opt-label">Inventory</label>
+							<textarea name="keywords" placeholder="language:'english', genre:'sports'"></textarea>
+						</div>
+						
+						<div id="visitor" class="kv">
+							<label class="opt-label">Visitor</label>
+							<textarea name="keywords" placeholder="age:'25', gender:'female'"></textarea>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div id="file-area">
+            <button id="upload-button" onclick="document.getElementById('tag-upload').click()">UPLOAD TAGS</button>
+			<div id="input-area"><input id="tag-upload" type="file" name="file" value=""></div>
+            <a href="" id="export-tag">View Tags</a>
+		</div>
+		<div id="table-div">
+			<table id="table1" align="center" class="sortable">
+				<thead>
+					<tr>
+                        <th><input type="checkbox" id="check-all"></th>
+						<th>Site Name</th>
+						<th>Zone Name</th>
+						<th id="status">Status</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+				</tbody>
+			</table>
+		</div>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>
